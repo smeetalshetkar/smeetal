@@ -7,7 +7,10 @@ public class git {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Git is fun");
+
+		int a=1128,b=232,sum;
+		sum=a+b;
+		System.out.println("Sum is "+sum);
 	}
 
 }
