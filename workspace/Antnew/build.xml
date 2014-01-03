@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<project name="antjunit" default="exec" basedir=".">
+	<path id="lib.path.id">
+		<fileset dir="C:/eclipse/plugins/org.apache.ant_1.7.1.v20100518-1145/lib" />
+		<fileset dir="C:/eclipse/plugins/org.junit_3.8.2.v3_8_2_v20100427-1100" />
+		<fileset dir="D:/selenium-2.35.0" />
+
+	</path>
+
+
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="dist.dir" value="dist" />
+	<property name="lib.dir" value="lib" />
+	<property name="bin.dir" value="bin" />
+	<property name="junit.dir" value="junit-results" />
+	<property name="junit.jar" location="D:/Junit/junit-4.10.jar" />
+	<property name="selenium.jar" location="D:/selenium-2.35.0" />
+	<property name="selenium1.jar" location="D:/selenium-2.35.0/libs" />
+	<property name="test.class" value="GoogleSearch" />
+	<property name="report.dir" value="report" />
+
+	<path id="classpath">
+		<pathelement location="${build.dir}" />
+		<pathelement location="${junit.jar}" />
+		<pathelement location="${selenium.jar}" />
+		<pathelement location="${selenium1.jar}" />
+
+	</path>
+
+	<target name="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${junit.dir}" />
+		<mkdir dir="${build.dir}" />
+	<mkdir dir="${junit.dir}" />
+
+	</target>
+
+
+	<target name="build" depends="init" description="build everything under ${src.dir}">
+		<javac srcdir="${src.dir}" destdir="${build.dir}">
+			<classpath refid="lib.path.id" />
+		</javac>
+	</target>
+
+
+	
+
+
+	<target name="exec" depends="build">
+		<delete dir="${junit.dir}" />
+		<mkdir dir="${report.dir}" />
+		<mkdir dir="${report.dir}/xml" />
+		<junit printsummary="yes" haltonfailure="no">
+			<classpath>
+						<pathelement location="${bin.dir}" />
+						<fileset dir="D:/selenium-2.35.0/libs">
+							<include name="**/*.jar" />
+						</fileset>
+					</classpath>
+			<test name="GoogleSearch" haltonfailure="no" todir="${report.dir}/xml" outfile="TEST-result">
+				<formatter type="xml" />
+			</test>
+		</junit>
+		<junitreport todir="${report.dir}">
+			<fileset dir="${report.dir}/xml">
+				<include name="TEST*.xml" />
+			</fileset>
+			<report format="frames" todir="${report.dir}/html" />
+		</junitreport>
+	</target>
+
+
+	<target name="clean" description="clean up">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		
+	</target>
+
+
+</project>
