@@ -11,7 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -27,24 +29,20 @@ public class TestingGoogle {
 	//  private WebDriver driver;
 	
 	  private ScreenshotHelper screenshotHelper;
-	  private static  WebDriver driver=new FirefoxDriver();
+	  private static  WebDriver driver;
 		private static  String baseUrl;
 	  
 		
 		@Before
 	  public void openBrowser() {
+			driver=new FirefoxDriver();
 			baseUrl = "http://www.bing.com/";
 			driver.get(baseUrl);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    screenshotHelper = new ScreenshotHelper();
 	  }
 	  
-	  @After
-	  public void saveScreenshotAndCloseBrowser() throws IOException {
-	    screenshotHelper.saveScreenshot("screenshot.png");
-	    driver.quit();
-	  }
-	  
+	   
 	  @Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
 	 // assertEquals("The page title should equal Google at the start of the test.", "Google", driver.getTitle());
@@ -55,31 +53,24 @@ public class TestingGoogle {
 	    assertEquals("Drupal",verify);
 	  
 	  }
+	  @Test
+	  public void pageTitleAfterSearchShouldBeginWithDrupal1() throws IOException {
+	 // assertEquals("The page title should equal Google at the start of the test.", "Google", driver.getTitle());
+	    WebElement searchField = driver.findElement(By.id("sb_form_q"));
+	    searchField.sendKeys("Selenium");
+	    searchField.submit();
+	    String verify=driver.findElement(By.xpath("//*[@id='wg0']/li[1]/div/div/div[1]/h3/a/strong[1]")).getText();
+	    assertEquals("Selenium",verify);
+	  
+	  }
 	 
 
-		@Test
-		public void Verify_Test() throws Exception  {
-			driver.get("http://www.google.com");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			String ExpectedLabel="Google Search";
-			String buttonLabel=driver.findElement(By.id("gbqfsa")).getText();
-			assertEquals(ExpectedLabel,buttonLabel);
-			}
-
-		@Test
-		public void Verify_SignIn() throws Exception  {
-			driver.get("http://www.google.com");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.findElement(By.id("gb_70")).click();
-			String ExpectedLabel="Stay signed in";
-			String signIn=driver.findElement(By.xpath("//*[@id='gaia_loginform']/label[3]/span")).getText();
-			
-			// String signIn=driver.findElement(By.id("signIn")).getText();
-			
-			assertEquals(ExpectedLabel,signIn);
-			}
-	  
-	  
+		@After
+		  public void saveScreenshotAndCloseBrowser() throws IOException {
+		    screenshotHelper.saveScreenshot("screenshot.png");
+		    driver.quit();
+		  }
+		 
 	  
 	  private class ScreenshotHelper {
 	      public void saveScreenshot(String screenshotFileName) throws IOException {
