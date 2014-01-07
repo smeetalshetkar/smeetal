@@ -2,7 +2,9 @@ package com.psl.selenium.smeet;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -53,6 +55,31 @@ public class TestingGoogle {
 	    assertEquals("Drupal",verify);
 	  
 	  }
+	 
+
+		@Test
+		public void Verify_Test() throws Exception  {
+			driver.get("http://www.google.com");
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			String ExpectedLabel="Google Search";
+			String buttonLabel=driver.findElement(By.id("gbqfsa")).getText();
+			assertEquals(ExpectedLabel,buttonLabel);
+			}
+
+		@Test
+		public void Verify_SignIn() throws Exception  {
+			driver.get("http://www.google.com");
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.findElement(By.id("gb_70")).click();
+			String ExpectedLabel="Stay signed in";
+			String signIn=driver.findElement(By.xpath("//*[@id='gaia_loginform']/label[3]/span")).getText();
+			
+			// String signIn=driver.findElement(By.id("signIn")).getText();
+			
+			assertEquals(ExpectedLabel,signIn);
+			}
+	  
+	  
 	  
 	  private class ScreenshotHelper {
 	      public void saveScreenshot(String screenshotFileName) throws IOException {
