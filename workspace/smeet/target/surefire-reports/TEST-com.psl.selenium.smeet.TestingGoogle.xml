@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="25.423" errors="0" skipped="0" tests="2" name="com.psl.selenium.smeet.TestingGoogle">
+<testsuite failures="0" time="58.189" errors="0" skipped="0" tests="2" name="com.psl.selenium.smeet.TestingGoogle">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jre6\bin"/>
@@ -25,9 +25,9 @@
     <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Users\smeetal_shetkar\workspace\.metadata\.plugins\org.eclipse.m2e.core\launches\m2conf3588491654172580933.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\smeetal_shetkar\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8474753283032879483.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jre6\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre6/bin/client;C:/Program Files/Java/jre6/bin;C:/Program Files/Java/jre6/lib/i386;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.6.0_21\bin;C:\apache-ant-1.9.2\bin;D:\maven\apache-maven-3.1.1\bin;D:\Git\bin;C:\Program Files\Java\jre6\bin"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jre6\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre6/bin/client;C:/Program Files/Java/jre6/bin;C:/Program Files/Java/jre6/lib/i386;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.6.0_21\bin;C:\apache-ant-1.9.2\bin;D:\maven\apache-maven-3.1.1\bin;D:\Git\bin;C:\Program Files\Java\jre6\bin;C:\eclipse;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="50.0"/>
     <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
@@ -54,11 +54,12 @@
     <property name="maven.home" value="D:\maven\apache-maven-3.1.1"/>
     <property name="file.separator" value="\"/>
     <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi"/>
+    <property name="maven.bootclasspath" value="D:\maven\apache-maven-3.1.1\boot\plexus-classworlds-2.5.1.jar"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase time="13.002" classname="com.psl.selenium.smeet.TestingGoogle" name="pageTitleAfterSearchShouldBeginWithDrupal"/>
-  <testcase time="12.421" classname="com.psl.selenium.smeet.TestingGoogle" name="pageTitleAfterSearchShouldBeginWithDrupal1"/>
+  <testcase time="27.562" classname="com.psl.selenium.smeet.TestingGoogle" name="pageTitleAfterSearchShouldBeginWithDrupal"/>
+  <testcase time="30.627" classname="com.psl.selenium.smeet.TestingGoogle" name="pageTitleAfterSearchShouldBeginWithDrupal1"/>
 </testsuite>
