@@ -19,11 +19,6 @@ public class AppTest {
 		assertEquals(6,a.sub());
 	}
 	
-	@Test
-	public void TestHappy(){
-		App b=new App();
-		b.happy();
-	}
 	
 	
 
